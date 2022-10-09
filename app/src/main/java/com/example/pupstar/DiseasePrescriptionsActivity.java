@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class DiseasePrescriptionsActivity extends AppCompatActivity {
 
     private TextView desc;
@@ -15,11 +17,17 @@ public class DiseasePrescriptionsActivity extends AppCompatActivity {
     private ImageView btnBack;
 
     private String details = "";
+    ArrayList<String> medications_array = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_disease_prescriptions);
+
+        Bundle extras= getIntent().getExtras();
+        if(extras != null){
+            medications_array = extras.getStringArrayList("medications");
+        }
 
         desc = (TextView) this.findViewById(R.id.desc);
         btnNext = (CardView) this.findViewById(R.id.btnNext);
@@ -33,7 +41,9 @@ public class DiseasePrescriptionsActivity extends AppCompatActivity {
             }
         });
 
-        details = "..................................................";
+        for(int i=0; i<medications_array.size(); i++){
+            details = details + medications_array.get(i) + "\n";
+        }
         desc.setText(details);
 
     }

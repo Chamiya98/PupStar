@@ -301,7 +301,7 @@ public class DetectBehaviorActivity extends AppCompatActivity {
             params.put("behavior", DetectedBehavior);
             //params.put("user_id", Preferences.LOGGED_USER_ID);
             JSONObject parameter = new JSONObject(params);
-            JsonObjectRequest jsonObject = new JsonObjectRequest(Request.Method.GET, URL, parameter, new Response.Listener<JSONObject>() {
+            JsonObjectRequest jsonObject = new JsonObjectRequest(Request.Method.POST, URL, parameter, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
 

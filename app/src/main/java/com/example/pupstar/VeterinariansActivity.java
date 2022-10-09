@@ -35,6 +35,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.sql.SQLOutput;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
@@ -73,7 +74,7 @@ public class VeterinariansActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
 
                 String selected = String.valueOf(arrayList.get(i).getId());
-
+                System.out.println("This is slected Id:" +selected);
                 Intent intent = new Intent(VeterinariansActivity.this, VetShopDetailsActivity.class);
                 intent.putExtra("id", selected);
                 startActivity(intent);
@@ -169,36 +170,40 @@ public class VeterinariansActivity extends AppCompatActivity {
 
                             for (int i = 0; i < arr.length(); i++) {
                                 int ClinicId = arr.getJSONArray(i).getInt(0);
-                                int GoodCommentCount = arr.getJSONArray(i).getInt(1);
-                                int BadCommentCount = arr.getJSONArray(i).getInt(2);
-                                int UnknownCommentCount = arr.getJSONArray(i).getInt(3);
-                                int ClinicId_FK = arr.getJSONArray(i).getInt(4);
-                                String ClinicName = arr.getJSONArray(i).getString(5);
-                                String ClinicAddress = arr.getJSONArray(i).getString(6);
+                                String ClinicName = arr.getJSONArray(i).getString(1);
+                                String adress = arr.getJSONArray(i).getString(2);
+                                String imageref = arr.getJSONArray(i).getString(3);
+                                int goodComment = arr.getJSONArray(i).getInt(4);
+                                int badCommentCount = arr.getJSONArray(i).getInt(5);
+                                int unknowncm = arr.getJSONArray(i).getInt(6);
+                                int all_count = arr.getJSONArray(i).getInt(7);
+                                //String ClinicName = arr.getJSONArray(i).getString(5);
+                                //String ClinicAddress = arr.getJSONArray(i).getString(6);
 
-                                float doublegm = Float.valueOf(GoodCommentCount);
-                                float doublebm = Float.valueOf(BadCommentCount);
-                                float doubleum = Float.valueOf(UnknownCommentCount);
+                                float doublegm = Float.valueOf(goodComment);
+                                float doublebm = Float.valueOf(badCommentCount);
+                                float doubleum = Float.valueOf(unknowncm);
+                                float doubleall = Float.valueOf(all_count);
 
 
-                                double goodcommentpercentage = ((doublegm) / (doublebm + doublegm + doubleum)) * 100;
+                                double goodcommentpercentage = ((doublegm) / (doubleall)) * 100;
                                 //System.out.println(goodcommentpercentage);
-                                double badcommentpercentage = ((doublebm) / (doublebm + doublegm + doubleum)) * 100;
-                                double unknowncommentpercentage = ((doubleum) / (doublebm + doublegm + doubleum)) * 100;
+                                double badcommentpercentage = ((doublebm) / (doubleall)) * 100;
+                                double unknowncommentpercentage = ((doubleum) / (doubleall)) * 100;
                                 //System.out.println("clinic_ID"+ClinicId_FK);
                                 //Casting Var
                                 String castedClinicId = String.valueOf(ClinicId);
-                                String castedGoodCommentCount = String.valueOf(GoodCommentCount);
-                                String castedBadCommentCount = String.valueOf(BadCommentCount);
-                                String castedUnknownCommentCount = String.valueOf(UnknownCommentCount);
-                                String castedClinicId_FK = String.valueOf(ClinicId_FK);
+                                //String castedGoodCommentCount = String.valueOf(GoodCommentCount);
+                                //String castedBadCommentCount = String.valueOf(BadCommentCount);
+                                //String castedUnknownCommentCount = String.valueOf(UnknownCommentCount);
+                                //String castedClinicId_FK = String.valueOf(ClinicId_FK);
                                 String castedgoodcommentpercentage = String.valueOf(new DecimalFormat("##.##").format(goodcommentpercentage));
                                 //System.out.println("This is good comment"+castedgoodcommentpercentage);
                                 String castedbadcommentpercentage = String.valueOf(new DecimalFormat("##.##").format(badcommentpercentage));
                                 String castedunknowncommentpercentage = String.valueOf(unknowncommentpercentage);
-
-
-                                arrayList.add(new VetItem(castedClinicId, ClinicName, ClinicAddress, "1.5Km", castedgoodcommentpercentage + "%", castedbadcommentpercentage + "%", "https://goo.gl/maps/KjZxLVHiDX12YoYS9", "https://www.thesprucepets.com/thmb/vR6i92pOyYmL6FEH3yQXHtR4HAA=/941x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/names-for-german-shepherds-4797840-hero-ed34431ad20c42c6894b4a29765b4d68.jpg"));
+                                String imagurl = API.BASE_URL + "/static/images/images/team/" + String.valueOf(imageref);
+                                System.out.println("image URL:" +imagurl);
+                                arrayList.add(new VetItem(castedClinicId, ClinicName, adress, "1.5Km", castedgoodcommentpercentage + "%", castedbadcommentpercentage + "%", "https://goo.gl/maps/KjZxLVHiDX12YoYS9", imagurl));
                                 //arrayList.add(new VetItem("1", "Funa Vet Clinic", "Veterinary clinics", "1.5Km", "75%", "25%", "https://goo.gl/maps/KjZxLVHiDX12YoYS9", "https://www.thesprucepets.com/thmb/vR6i92pOyYmL6FEH3yQXHtR4HAA=/941x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/names-for-german-shepherds-4797840-hero-ed34431ad20c42c6894b4a29765b4d68.jpg"));
                                 vetAdapter.notifyDataSetChanged();
                                 /*System.out.println(arr.getJSONArray(i).getInt(2));
