@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/drawable-v24/navigation_view_colored.xml" value="0.1095" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/drawable/bg_blue.xml" value="0.2425" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/drawable/bg_chip_state_list.xml" value="0.1915" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/drawable/bg_gray_round_corner.xml" value="0.1915" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/drawable/bg_red_round_corner.xml" value="0.2425" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/drawable/bg_white_round_corner.xml" value="0.2425" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/drawable/bg_white_round_corner_with_stork.xml" value="0.1915" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/drawable/gradient_blue_bg.xml" value="0.2425" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/drawable/gradient_blue_round_corner_bg.xml" value="0.2425" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/drawable/gray_out_line.xml" value="0.1915" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/drawable/navigation_view_colored.xml" value="0.2425" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/drawable/toggle_widget_background.xml" value="0.1915" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/activity_add_appointment.xml" value="0.264" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/activity_add_dog_details.xml" value="0.264" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/activity_dashboard.xml" value="0.2" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/activity_detect_behavier.xml" value="0.2630208333333333" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/activity_detect_behavior.xml" value="0.2" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/activity_detect_disease.xml" value="0.2630208333333333" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/activity_disease_detection_dashboard.xml" value="0.25181159420289856" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/activity_disease_prescriptions.xml" value="0.25181159420289856" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/activity_dogs_behavior_dashboard.xml" value="0.2630208333333333" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/activity_dogs_dehavior_dashboard.xml" value="0.2630208333333333" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/activity_previoues_behaviors.xml" value="0.25181159420289856" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/activity_previous_behaviors.xml" value="0.2625" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/activity_previous_diseases.xml" value="0.24010416666666667" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/activity_sign_up.xml" value="0.358695652173913" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/activity_vet_shop_details.xml" value="0.264" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/activity_veterinarians.xml" value="0.2625" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/activity_view_behavior_detected_result.xml" value="0.264" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/activity_view_disease_detected_result.xml" value="0.25181159420289856" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/activity_welcome.xml" value="0.358695652173913" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/dialog_box_behabior_details.xml" value="0.2" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/fragment_appointments.xml" value="0.264" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/fragment_dashboard.xml" value="0.264" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/fragment_explore.xml" value="0.358695652173913" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/fragment_my_dogs.xml" value="0.2546875" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/fragment_search.xml" value="0.358695652173913" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/row_appointment_item.xml" value="0.2994791666666667" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/row_behaviors_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/row_comment_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/row_my_dogs_item.xml" value="0.264" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/row_pre_behaviors_item.xml" value="0.25181159420289856" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/row_pre_disease_item.xml" value="0.1125" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/row_vet_item.xml" value="0.2625" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/layout/spinner_row.xml" value="0.365625" />
+        <entry key="..\:/External-Projects/#SLIIT/Chamika/PupStar/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />
+        <entry key="..\:/SLIIT/Ad/platforms/android-32/data/res/layout/simple_spinner_item.xml" value="0.1480978260869565" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/activity_add_appointment.xml" value="0.21693840579710144" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/activity_add_dog_details.xml" value="0.21693840579710144" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/activity_dashboard.xml" value="0.21693840579710144" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/activity_detect_behavior.xml" value="0.264" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/activity_detect_disease.xml" value="0.21693840579710144" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/activity_disease_detection_dashboard.xml" value="0.21693840579710144" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/activity_disease_prescriptions.xml" value="0.21693840579710144" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/activity_dogs_behavior_dashboard.xml" value="0.21693840579710144" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/activity_main.xml" value="0.1693840579710145" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/activity_previous_behaviors.xml" value="0.1693840579710145" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/activity_previous_diseases.xml" value="0.25" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/activity_vet_shop_details.xml" value="0.21693840579710144" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/activity_veterinarians.xml" value="0.21693840579710144" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/activity_view_behavior_detected_result.xml" value="0.21693840579710144" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/activity_view_disease_detected_result.xml" value="0.21693840579710144" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/activity_welcome.xml" value="0.21693840579710144" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/dialog_box_behabior_details.xml" value="0.21693840579710144" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/fragment_appointments.xml" value="0.1693840579710145" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/fragment_dashboard.xml" value="0.21693840579710144" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/fragment_my_dogs.xml" value="0.1693840579710145" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/fragment_profile.xml" value="0.21693840579710144" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/row_appointment_item.xml" value="0.25" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/row_behaviors_item.xml" value="0.1693840579710145" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/row_comment_item.xml" value="0.1693840579710145" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/row_my_dogs_item.xml" value="0.1693840579710145" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/row_pre_behaviors_item.xml" value="0.25" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/row_pre_disease_item.xml" value="0.25" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/row_vet_item.xml" value="0.25" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/spinner_row.xml" value="0.25" />
+        <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

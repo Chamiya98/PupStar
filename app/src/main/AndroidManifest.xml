@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.pupstar">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.Camera" />
+    <uses-feature android:name="android.hardware.Camera.autofocus" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/paw_black"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/paw_black"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PupStar"
+        android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/config"
+        tools:targetApi="31">
+        <activity
+            android:name=".VetShopDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddAppointmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VeterinariansActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PreviousDiseasesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PreviousBehaviorsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DiseaseDetectionDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DiseasePrescriptionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ViewDiseaseDetectedResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ViewBehaviorDetectedResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DogsBehaviorDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetectDiseaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetectBehaviorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddDogDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WelcomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

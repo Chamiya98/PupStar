@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="Dashboard"
+        android:icon="@drawable/ic_dashboard"
+        android:id="@+id/nav_dashboard" />
+
+    <item
+        android:title="My Dogs"
+        android:icon="@drawable/ic_pets"
+        android:id="@+id/nav_my_dogs" />
+
+    <item
+        android:title="Appointments"
+        android:icon="@drawable/ic_access_time"
+        android:id="@+id/nav_appointment"/>
+
+    <item
+        android:title="Profile"
+        android:icon="@drawable/ic_person"
+        android:id="@+id/nav_profile"/>
+
+    <item
+        android:title="Sign Out"
+        android:icon="@drawable/ic_logout"
+        android:id="@+id/nav_sign_out"/>
+
+</menu>

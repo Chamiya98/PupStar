@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray1"
+    android:orientation="vertical"
+    android:gravity="bottom"
+    tools:context=".WelcomeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="20dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginBottom="50dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/corgi_smile"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:gravity="center">
+
+            <LinearLayout
+                android:id="@+id/help1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="Welcome to PupStar"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="All types of care for your dog in one\nplace, instantly searchable."
+                    android:textSize="12dp"
+                    android:textStyle="normal"
+                    android:textFontWeight="400"
+                    android:textColor="@color/black1"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/help2"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="Reliable Features"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Extended and revolutionary features\nfor dog lovers"
+                    android:textSize="12dp"
+                    android:textStyle="normal"
+                    android:textFontWeight="400"
+                    android:textColor="@color/black1"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="180dp"
+            android:layout_height="42dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/bg_gradient_blue_round_corner"
+            android:text="GET START"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:backgroundTint="@null"/>
+
+    </LinearLayout>
+
+</LinearLayout>
