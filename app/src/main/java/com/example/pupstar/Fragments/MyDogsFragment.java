@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -20,6 +21,9 @@ import android.widget.TextView;
 
 import com.example.pupstar.AddDogDetailsActivity;
 import com.example.pupstar.R;
+import com.example.pupstar.VetShopDetailsActivity;
+import com.example.pupstar.VeterinariansActivity;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -30,16 +34,49 @@ public class MyDogsFragment extends Fragment {
     private ListView listView;
     private ArrayList<MyDogItem> arrayList = new ArrayList<>();
 
+    private BottomSheetDialog dialogBox;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_my_dogs, container, false);
 
+//        Dialog box
+        dialogBox = new BottomSheetDialog(getContext(), R.style.BottomSheetTheme);
+        dialogBox.setContentView(R.layout.dialog_my_dog_item);
+
         listView = (ListView) view.findViewById(R.id.listView);
         btnAddDogDetails = (ImageView) view.findViewById(R.id.btnAddDog);
 
         showMyDogs();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+
+                String selected = String.valueOf(arrayList.get(i).getId());
+                ImageView dialogImage;
+                TextView name, breed, foods, vitamins;
+
+                dialogImage = dialogBox.findViewById(R.id.image);
+                name = dialogBox.findViewById(R.id.name);
+                breed = dialogBox.findViewById(R.id.breed);
+                foods = dialogBox.findViewById(R.id.foods);
+                vitamins = dialogBox.findViewById(R.id.vitamins);
+
+                Uri imgUri = Uri.parse(arrayList.get(i).getImage());
+                Picasso.get().load(imgUri).into(dialogImage);
+
+                name.setText(arrayList.get(i).getName());
+                breed.setText(arrayList.get(i).getBreed());
+                foods.setText(arrayList.get(i).getFoods());
+                vitamins.setText(arrayList.get(i).getVitamins());
+
+                dialogBox.show();
+
+            }
+        });
 
         btnAddDogDetails.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,8 +99,8 @@ public class MyDogsFragment extends Fragment {
         MyDogAdapter myDogAdapter = new MyDogAdapter(getContext(), R.layout.row_my_dogs_item, arrayList);
         listView.setAdapter(myDogAdapter);
 
-        arrayList.add(new MyDogItem("pet1", "Shadow", "German Shepherd", "https://www.thesprucepets.com/thmb/vR6i92pOyYmL6FEH3yQXHtR4HAA=/941x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/names-for-german-shepherds-4797840-hero-ed34431ad20c42c6894b4a29765b4d68.jpg"));
-        arrayList.add(new MyDogItem("pet2", "Puppy", "German Shepherd", "https://i.pinimg.com/736x/13/44/a9/1344a98c1a7bd9788838922836d813c0.jpg"));
+        arrayList.add(new MyDogItem("pet1", "Shadow", "German Shepherd", "https://www.thesprucepets.com/thmb/vR6i92pOyYmL6FEH3yQXHtR4HAA=/941x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/names-for-german-shepherds-4797840-hero-ed34431ad20c42c6894b4a29765b4d68.jpg", "Meet, Fruits", "Omega, Calcium"));
+        arrayList.add(new MyDogItem("pet2", "Puppy", "German Shepherd", "https://i.pinimg.com/736x/13/44/a9/1344a98c1a7bd9788838922836d813c0.jpg", "Meet, Fruits, Royal Canin", "Omega, Calcium, C"));
         myDogAdapter.notifyDataSetChanged();
     }
 
@@ -71,13 +108,15 @@ public class MyDogsFragment extends Fragment {
 
 class MyDogItem {
 
-    String id, name, breed, image;
+    String id, name, breed, image, foods, vitamins;
 
-    public MyDogItem(String id, String name, String breed, String image) {
+    public MyDogItem(String id, String name, String breed, String image, String foods, String vitamins) {
         this.id = id;
         this.name = name;
         this.breed = breed;
         this.image = image;
+        this.foods = foods;
+        this.vitamins = vitamins;
     }
 
     public String getId() {
@@ -94,6 +133,14 @@ class MyDogItem {
 
     public String getImage() {
         return image;
+    }
+
+    public String getFoods() {
+        return foods;
+    }
+
+    public String getVitamins() {
+        return vitamins;
     }
 }
 

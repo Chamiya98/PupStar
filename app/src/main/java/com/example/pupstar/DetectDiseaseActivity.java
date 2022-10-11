@@ -265,7 +265,7 @@ public class DetectDiseaseActivity extends AppCompatActivity {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(DetectDiseaseActivity.this, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DetectDiseaseActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
 

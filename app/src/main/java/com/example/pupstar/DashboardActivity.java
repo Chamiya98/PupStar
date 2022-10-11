@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.pupstar.Fragments.AppointmentsFragment;
 import com.example.pupstar.Fragments.DashboardFragment;
@@ -17,16 +19,24 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class DashboardActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
+    private TextView Recentloggeduser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-
+        Recentloggeduser = (TextView) this.findViewById(R.id.loggedUser);
         bottomNavigationView = (BottomNavigationView) this.findViewById(R.id.navigatorView);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
         bottomNavigationView.setSelectedItemId(R.id.nav_dashboard);
+
+        Bundle bundle = getIntent().getExtras();
+        String user = bundle.getString("user");
+
+        //System.out.println("This is the logged user: " +user);
+        //Recentloggeduser.setText(user);
+
 
     }
 

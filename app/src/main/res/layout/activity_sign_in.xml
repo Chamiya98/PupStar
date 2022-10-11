@@ -72,14 +72,15 @@
                         android:textStyle="bold"/>
 
                     <EditText
+                        android:id="@+id/signinEmail"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:hint="Email"
                         android:inputType="textEmailAddress"
                         android:textColor="@color/black1"
-                        android:textColorHint="@color/gray3"
                         android:textColorHighlight="@color/gray3"
-                        app:backgroundTint="@color/gray3"/>
+                        android:textColorHint="@color/gray3"
+                        app:backgroundTint="@color/gray3" />
 
                 </LinearLayout>
 
@@ -99,15 +100,16 @@
                         android:textStyle="bold"/>
 
                     <EditText
+                        android:id="@+id/passwordSignIn"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:hint="Password"
                         android:inputType="textPassword"
                         android:password="true"
                         android:textColor="@color/black1"
-                        android:textColorHint="@color/gray3"
                         android:textColorHighlight="@color/gray3"
-                        app:backgroundTint="@color/gray3"/>
+                        android:textColorHint="@color/gray3"
+                        app:backgroundTint="@color/gray3" />
 
                 </LinearLayout>
 

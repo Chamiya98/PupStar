@@ -28,6 +28,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -36,9 +37,9 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
-import java.util.prefs.Preferences;
 
 public class AddDogDetailsActivity extends AppCompatActivity {
 
@@ -47,7 +48,7 @@ public class AddDogDetailsActivity extends AppCompatActivity {
     private ImageView selectedImage, petImage, btnBack;
     private Spinner petType, genderType;
     private TextView detectedTitle;
-    private EditText dob;
+    private EditText dob, fullName, weight, txtDetectedBreed;
 
     private ArrayList<String> petsItemsArray = new ArrayList<String>();
     private ArrayAdapter<String> petsAdapter;
@@ -55,7 +56,8 @@ public class AddDogDetailsActivity extends AppCompatActivity {
     private ArrayList<String> genderItemsArray = new ArrayList<String>();
     private ArrayAdapter<String> genderAdapter;
 
-    private String selectedPetType = "", selectedGenderType = "", selectedDob = "";
+    private String selectedPetType = "", selectedGenderType = "", selectedDob = "",
+        detectedBreed = "";
 
     private static final int PICK_IMAGE = 100;
     private Uri imageUri = Uri.EMPTY;
@@ -75,6 +77,9 @@ public class AddDogDetailsActivity extends AppCompatActivity {
         detectedTitle = (TextView) findViewById(R.id.detectedTitle);
 
         dob = (EditText) findViewById(R.id.dob);
+        fullName = (EditText) findViewById(R.id.fullName);
+        weight = (EditText) findViewById(R.id.weight);
+        txtDetectedBreed = (EditText) findViewById(R.id.detectedBreed);
 
         detailView = (LinearLayout) findViewById(R.id.detailView);
         detectionView = (LinearLayout) findViewById(R.id.detectionView);
@@ -131,8 +136,87 @@ public class AddDogDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                detectionView.setVisibility(View.GONE);
-                detailView.setVisibility(View.VISIBLE);
+                if (detectedBreed.equals("")) {
+                    Toast.makeText(AddDogDetailsActivity.this, "Please detect your dog breed.", Toast.LENGTH_SHORT).show();
+                } else {
+                    detectionView.setVisibility(View.GONE);
+                    detailView.setVisibility(View.VISIBLE);
+                }
+
+            }
+        });
+
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String strFullName = fullName.getText().toString();
+                String strWeight = weight.getText().toString();
+
+                if (detectedBreed.equals("") || strFullName.equals("") || strWeight.equals("") ||
+                    selectedGenderType.equals("") || selectedPetType.equals("") || selectedDob.equals("") ||
+                    bitmap == null) {
+
+                    Toast.makeText(AddDogDetailsActivity.this, "Please detect breed/fill details.", Toast.LENGTH_SHORT).show();
+
+                } else {
+
+                    String URL = API.BASE_URL + "/save_dog_details";
+
+                    String image = getStringImage(bitmap);
+
+                    HashMap<String, String> params = new HashMap<>();
+                    params.put("file", image);
+                    params.put("detected_breed", detectedBreed);
+                    params.put("full_name", strFullName);
+                    params.put("weight", strWeight);
+                    params.put("gender", selectedGenderType);
+                    params.put("pet_type", selectedPetType);
+                    params.put("dob", selectedDob);
+                    params.put("user_email", PreferencesData.LOGGED_USERNAME);
+
+                    JSONObject parameter = new JSONObject(params);
+                    JsonObjectRequest jsonObject = new JsonObjectRequest(Request.Method.POST, URL, parameter, new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+
+                            try {
+
+                                String status = response.getString("status");
+                                String message = response.getString("message");
+
+                                Toast.makeText(AddDogDetailsActivity.this, message, Toast.LENGTH_SHORT).show();
+                                bitmap = null;
+
+                                if (status.equals("success")) {
+                                    Intent intent = new Intent(AddDogDetailsActivity.this, DashboardActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(AddDogDetailsActivity.this, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+
+                    RequestQueue queue = Volley.newRequestQueue(AddDogDetailsActivity.this);
+                    queue.add(jsonObject);
+
+                }
+
+                //String fullname =
+
+                //insertDogData();
+
 
             }
         });
@@ -250,9 +334,12 @@ public class AddDogDetailsActivity extends AppCompatActivity {
 
                         //String status = response.getString("status");
                         String breed = response.getString("message");
+                        String[] arrOfStr = breed.split("&");
+                        detectedBreed = arrOfStr[0];
+                        txtDetectedBreed.setText(arrOfStr[0]);
 
                         Toast.makeText(AddDogDetailsActivity.this, breed, Toast.LENGTH_SHORT).show();
-                        System.out.println("Breed is :" +breed);
+                        System.out.println("Breed is : " + breed);
                         detectedTitle.setText(breed);
                         bitmap = null;
 
@@ -284,6 +371,51 @@ public class AddDogDetailsActivity extends AppCompatActivity {
         byte[] imageBytes = byteArrayOutputStream.toByteArray();
         String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
         return encodedImage;
+
+    }
+
+    private void showComments(String fullname, String pettype, String weight, String gender, Date dob)
+    {
+
+
+
+        String URL = API.BASE_URL + "/getcommentsforclinic";
+
+        //String image = getStringImage(bitmap);
+        HashMap<String, String> params = new HashMap<>();
+        params.put("id", "");
+        JSONObject parameter = new JSONObject(params);
+        JsonObjectRequest jsonObject = new JsonObjectRequest(Request.Method.POST, URL, parameter, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                try {
+                    JSONObject jsonObject = new JSONObject(String.valueOf(response));
+                    JSONArray arr = jsonObject.getJSONArray("message");
+                    System.out.println(arr);
+                    for (int i = 0; i < arr.length(); i++) {
+                        int commentid = arr.getJSONArray(i).getInt(0);
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(AddDogDetailsActivity.this, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(jsonObject);
+
 
     }
 

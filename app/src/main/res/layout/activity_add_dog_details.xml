@@ -56,7 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:visibility="visible"
+            android:visibility="gone"
             android:gravity="center_horizontal">
 
             <LinearLayout
@@ -254,7 +254,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center_horizontal"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -303,6 +303,7 @@
                                 android:textSize="14dp" />
 
                             <EditText
+                                android:id="@+id/fullName"
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:backgroundTint="@color/white"
@@ -347,11 +348,38 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:text="Detected Breed"
+                                android:textColor="@color/gray3"
+                                android:textSize="14dp" />
+
+                            <EditText
+                                android:id="@+id/detectedBreed"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:backgroundTint="@color/white"
+                                android:hint="Detected Breed"
+                                android:inputType="textEmailAddress"
+                                android:textColorHint="@color/gray3"
+                                android:textSize="16dp"
+                                android:enabled="false"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:text="Weight (optional)"
                                 android:textColor="@color/gray3"
                                 android:textSize="14dp" />
 
                             <EditText
+                                android:id="@+id/weight"
                                 android:layout_width="match_parent"
                                 android:layout_height="40dp"
                                 android:backgroundTint="@color/white"

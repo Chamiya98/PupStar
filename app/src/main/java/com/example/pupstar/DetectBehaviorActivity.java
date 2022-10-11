@@ -251,6 +251,9 @@ public class DetectBehaviorActivity extends AppCompatActivity {
                         //String status = response.getString("status");
                         String behaviour = response.getString("message");
                         String behaviortitle = response.getString("mood");
+
+                        System.out.println("behavior: " +behaviour);
+                        System.out.println("behavior title: " +behaviortitle);
                         Toast.makeText(DetectBehaviorActivity.this, behaviour, Toast.LENGTH_SHORT).show();
                         detected_behavior_Title.setText(behaviour);
                         DetectedBehavior = behaviortitle;
