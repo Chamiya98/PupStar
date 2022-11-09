@@ -3,7 +3,7 @@ package com.example.pupstar;
 public class API {
 
     //    Base api
-    public static final String BASE_URL = "http://35.198.245.186:5000";
+    public static final String BASE_URL = "http://34.124.170.0:5000";
 
     //public ip address
     public static final String WIFI_URL="112.134.199.189";
