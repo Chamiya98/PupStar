@@ -18,6 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,11 +39,12 @@ import org.json.JSONObject;
 import java.sql.SQLOutput;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class VeterinariansActivity extends AppCompatActivity {
 
     private ChipGroup chipGroup;
-    private EditText search;
+//    private EditText search;
     private ImageView btnBack;
 
     private ListView listView;
@@ -57,7 +59,7 @@ public class VeterinariansActivity extends AppCompatActivity {
         chipGroup = (ChipGroup) this.findViewById(R.id.chipGroup);
 
         listView = (ListView) this.findViewById(R.id.listView);
-        search = (EditText) this.findViewById(R.id.search);
+//        search = (EditText) this.findViewById(R.id.search);
         btnBack = (ImageView) this.findViewById(R.id.btnBack);
 
         showClinics();
@@ -100,45 +102,74 @@ public class VeterinariansActivity extends AppCompatActivity {
             }
         });
 
-        search.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//        search.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//                String value = charSequence.toString().toLowerCase();
+//
+//                arrayList.clear();
+//                listView.setAdapter(null);
+//
+//                VetAdapter vetAdapter = new VetAdapter(VeterinariansActivity.this, R.layout.row_vet_item, arrayList);
+//                listView.setAdapter(vetAdapter);
+//
+//                if (!value.equals("")) {
+//                    for (int l = 0; l < arrayList2.size(); l++) {
+//                        if (arrayList2.get(l).getTitle().toLowerCase().contains(value)) {
+//                            arrayList.add(arrayList2.get(l));
+//                        }
+//                    }
+//                } else {
+//                    for (int l = 0; l < arrayList2.size(); l++) {
+//                        arrayList.add(arrayList2.get(l));
+//                    }
+//                }
+//
+//                vetAdapter.notifyDataSetChanged();
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable editable) {
+//
+//            }
+//        });
 
+        this.initSearchWidget();
+
+    }
+
+    private void initSearchWidget()
+    {
+        SearchView searchView = (SearchView) findViewById(R.id.searchViewMain);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
             }
 
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            public boolean onQueryTextChange(String s) {
+                ArrayList<VetItem> filteredVets = new ArrayList<VetItem>();
 
-                String value = charSequence.toString().toLowerCase();
-
-                arrayList.clear();
-                listView.setAdapter(null);
-
-                VetAdapter vetAdapter = new VetAdapter(VeterinariansActivity.this, R.layout.row_vet_item, arrayList);
-                listView.setAdapter(vetAdapter);
-
-                if (!value.equals("")) {
-                    for (int l = 0; l < arrayList2.size(); l++) {
-                        if (arrayList2.get(l).getTitle().toLowerCase().contains(value)) {
-                            arrayList.add(arrayList2.get(l));
-                        }
-                    }
-                } else {
-                    for (int l = 0; l < arrayList2.size(); l++) {
-                        arrayList.add(arrayList2.get(l));
+                for(VetItem vet : arrayList)
+                {
+                    if(vet.getTitle().toLowerCase().contains(s.toLowerCase()))
+                    {
+                        filteredVets.add(vet);
                     }
                 }
-
-                vetAdapter.notifyDataSetChanged();
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
+                VetAdapter va = new VetAdapter(VeterinariansActivity.this, R.layout.row_vet_item, filteredVets);
+                listView.setAdapter(va);
+                return false;
             }
         });
-
     }
 
     private void showClinics() {

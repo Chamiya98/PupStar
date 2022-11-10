@@ -104,16 +104,11 @@
             android:layout_marginTop="5dp"
             android:gravity="center">
 
-            <EditText
-                android:id="@+id/search"
+            <SearchView
+                android:id="@+id/searchViewMain"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:hint="Search"
-                android:inputType="textPersonName"
-                android:textColor="@color/black1"
-                android:textColorHint="@color/gray3"
-                android:textColorHighlight="@color/gray3"
-                app:backgroundTint="@color/gray3"/>
+                android:layout_height="match_parent"
+                android:queryHint="Search" />
 
         </LinearLayout>
 

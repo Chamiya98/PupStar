@@ -100,7 +100,7 @@ public class VetShopDetailsActivity extends AppCompatActivity {
 
         CommentAdapter commentAdapter = new CommentAdapter(VetShopDetailsActivity.this, R.layout.row_comment_item, arrayList);
         listView.setAdapter(commentAdapter);
-        //String image = getStringImage(bitmap);
+//        String image = getStringImage(bitmap);
         HashMap<String, String> params = new HashMap<>();
         params.put("id", id);
         //params.put("behavior", DetectedBehavior);
@@ -326,8 +326,8 @@ public class VetShopDetailsActivity extends AppCompatActivity {
             title.setText(getItem(position).getTitle());
             comment.setText(getItem(position).getComment());
 
-            Uri imgUri = Uri.parse(getItem(position).getImage());
-            Picasso.get().load(imgUri).into(image);
+//            Uri imgUri = Uri.parse(getItem(position).getImage());
+//            Picasso.get().load(imgUri).into(image);
 
             return convertView;
         }
