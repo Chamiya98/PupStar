@@ -31,8 +31,8 @@ public class DashboardActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
         bottomNavigationView.setSelectedItemId(R.id.nav_dashboard);
 
-        Bundle bundle = getIntent().getExtras();
-        String user = bundle.getString("user");
+        //Bundle bundle = getIntent().getExtras();
+        //String user = bundle.getString("user");
 
         //System.out.println("This is the logged user: " +user);
         //Recentloggeduser.setText(user);

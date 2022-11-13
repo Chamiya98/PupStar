@@ -55,6 +55,7 @@ public class DetectBehaviorActivity extends AppCompatActivity {
     private Spinner dogs;
     String SelectedDogId = "";
     String DetectedBehavior = "";
+    String imgpre = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -166,7 +167,8 @@ public class DetectBehaviorActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent(DetectBehaviorActivity.this, ViewBehaviorDetectedResultActivity.class);
-//                intent.putExtra("BitmapImage", bitmap);
+                intent.putExtra("BitmapImage", bitmap);
+                intent.putExtra("randomImage", imgpre);
                 startActivity(intent);
 
                 if (SelectedDogId == "Select An Item"){
@@ -251,7 +253,7 @@ public class DetectBehaviorActivity extends AppCompatActivity {
                         //String status = response.getString("status");
                         String behaviour = response.getString("message");
                         String behaviortitle = response.getString("mood");
-
+                        imgpre = response.getString("randomid");
                         System.out.println("behavior: " +behaviour);
                         System.out.println("behavior title: " +behaviortitle);
                         Toast.makeText(DetectBehaviorActivity.this, behaviour, Toast.LENGTH_SHORT).show();
@@ -302,6 +304,7 @@ public class DetectBehaviorActivity extends AppCompatActivity {
             HashMap<String, String> params = new HashMap<>();
             params.put("dogname", SelectedDogId);
             params.put("behavior", DetectedBehavior);
+            params.put("randomimgid", imgpre);
             //params.put("user_id", Preferences.LOGGED_USER_ID);
             JSONObject parameter = new JSONObject(params);
             JsonObjectRequest jsonObject = new JsonObjectRequest(Request.Method.POST, URL, parameter, new Response.Listener<JSONObject>() {

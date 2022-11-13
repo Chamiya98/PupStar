@@ -58,6 +58,10 @@ public class AddDogDetailsActivity extends AppCompatActivity {
 
     private String selectedPetType = "", selectedGenderType = "", selectedDob = "",
         detectedBreed = "";
+    String randomimageId = "";
+
+
+
 
     private static final int PICK_IMAGE = 100;
     private Uri imageUri = Uri.EMPTY;
@@ -153,6 +157,17 @@ public class AddDogDetailsActivity extends AppCompatActivity {
 
                 String strFullName = fullName.getText().toString();
                 String strWeight = weight.getText().toString();
+                String selectedDob = dob.getText().toString();
+                String image = getStringImage(bitmap);
+                System.out.println("Image: " +image);
+                System.out.println("detected_breed: " +detectedBreed);
+                //System.out.println("Image: " +strFullName);
+                System.out.println("full_name: " +strFullName);
+                System.out.println("weight: " +strWeight);
+                System.out.println("gender: " +selectedGenderType);
+                System.out.println("pet_type: " +selectedPetType);
+                System.out.println("dob: " +selectedDob);
+                System.out.println("user_email: " +PreferencesData.LOGGED_USERNAME);
 
                 if (detectedBreed.equals("") || strFullName.equals("") || strWeight.equals("") ||
                     selectedGenderType.equals("") || selectedPetType.equals("") || selectedDob.equals("") ||
@@ -164,10 +179,10 @@ public class AddDogDetailsActivity extends AppCompatActivity {
 
                     String URL = API.BASE_URL + "/save_dog_details";
 
-                    String image = getStringImage(bitmap);
+                    //String image = getStringImage(bitmap);
 
                     HashMap<String, String> params = new HashMap<>();
-                    params.put("file", image);
+                    params.put("file", randomimageId);
                     params.put("detected_breed", detectedBreed);
                     params.put("full_name", strFullName);
                     params.put("weight", strWeight);
@@ -175,6 +190,9 @@ public class AddDogDetailsActivity extends AppCompatActivity {
                     params.put("pet_type", selectedPetType);
                     params.put("dob", selectedDob);
                     params.put("user_email", PreferencesData.LOGGED_USERNAME);
+
+
+
 
                     JSONObject parameter = new JSONObject(params);
                     JsonObjectRequest jsonObject = new JsonObjectRequest(Request.Method.POST, URL, parameter, new Response.Listener<JSONObject>() {
@@ -334,6 +352,7 @@ public class AddDogDetailsActivity extends AppCompatActivity {
 
                         //String status = response.getString("status");
                         String breed = response.getString("message");
+                        randomimageId = response.getString("randimageid");
                         String[] arrOfStr = breed.split("&");
                         detectedBreed = arrOfStr[0];
                         txtDetectedBreed.setText(arrOfStr[0]);
@@ -341,7 +360,7 @@ public class AddDogDetailsActivity extends AppCompatActivity {
                         Toast.makeText(AddDogDetailsActivity.this, breed, Toast.LENGTH_SHORT).show();
                         System.out.println("Breed is : " + breed);
                         detectedTitle.setText(breed);
-                        bitmap = null;
+                        //bitmap = null;
 
                     } catch (JSONException e) {
                         e.printStackTrace();

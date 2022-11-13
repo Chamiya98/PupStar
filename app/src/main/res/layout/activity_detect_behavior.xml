@@ -140,7 +140,9 @@
                             <Spinner
                                 android:id="@+id/spinner_dogs"
                                 android:layout_width="202dp"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="35dp"
+                                android:background="@drawable/bg_gray_circle"
+                                android:dropDownSelector="@color/gray3" />
 
                         </LinearLayout>
 

@@ -86,6 +86,13 @@
         <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/row_vet_item.xml" value="0.25" />
         <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/layout/spinner_row.xml" value="0.25" />
         <entry key="..\:/SLIIT/Final project/PupStar-main/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
+        <entry key="..\:/SLIIT/Final project/PupStar_Foront-End/app/src/main/res/layout/activity_add_appointment.xml" value="0.3625" />
+        <entry key="..\:/SLIIT/Final project/PupStar_Foront-End/app/src/main/res/layout/activity_detect_behavior.xml" value="0.3625" />
+        <entry key="..\:/SLIIT/Final project/PupStar_Foront-End/app/src/main/res/layout/activity_dogs_behavior_dashboard.xml" value="0.3220108695652174" />
+        <entry key="..\:/SLIIT/Final project/PupStar_Foront-End/app/src/main/res/layout/activity_vet_shop_details.xml" value="0.3625" />
+        <entry key="..\:/SLIIT/Final project/PupStar_Foront-End/app/src/main/res/layout/activity_veterinarians.xml" value="0.3625" />
+        <entry key="..\:/SLIIT/Final project/PupStar_Foront-End/app/src/main/res/layout/fragment_dashboard.xml" value="0.18541666666666667" />
+        <entry key="..\:/SLIIT/Final project/PupStar_Foront-End/app/src/main/res/layout/row_my_dogs_item.xml" value="0.18541666666666667" />
       </map>
     </option>
   </component>
