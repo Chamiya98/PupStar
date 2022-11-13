@@ -9,9 +9,12 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +30,12 @@ import android.widget.TextView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class ViewBehaviorDetectedResultActivity extends AppCompatActivity {
@@ -36,21 +45,34 @@ public class ViewBehaviorDetectedResultActivity extends AppCompatActivity {
     private TextView mood;
     private CardView veterinary;
     private ImageView btnBack;
-
+    private Uri imageUri = Uri.EMPTY;
+    private Bitmap main_bmp = null;
     private ArrayList<BehaviorItem> arrayList = new ArrayList<>();
 
     private Bitmap bitmap = null;
 
     private BottomSheetDialog detailDialog;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //Intent intent = getIntent();
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_behavior_detected_result);
 
         Intent intent = getIntent();
         bitmap = (Bitmap) intent.getParcelableExtra("BitmapImage");
-
+        String imagereferance = intent.getStringExtra("id");
+        String fromAnayseImage = intent.getStringExtra("randomImage");
+        String finalfromAnayseImage = API.BASE_URL +"/static/uploads/behavior/"+ fromAnayseImage + "_breed.png";
+        //main_bmp = BitmapData.getInstance().getBitmap();
+        System.out.println("This is from Intent ID" + imagereferance);
+        System.out.println("This is from Intent ID froman" + fromAnayseImage);
+        System.out.println("This is from Intent ID final froman" + finalfromAnayseImage);
         detailDialog = new BottomSheetDialog(ViewBehaviorDetectedResultActivity.this, R.style.BottomSheetTheme);
         detailDialog.setContentView(R.layout.dialog_box_behabior_details);
 
@@ -61,13 +83,24 @@ public class ViewBehaviorDetectedResultActivity extends AppCompatActivity {
 
         btnBack = (ImageView) findViewById(R.id.btnBack);
 
-        Uri imgUri = Uri.parse("https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F47%2F2020%2F08%2F06%2Frottweiler-headshot-678833089-2000.jpg");
+
+        Uri imgUri;
+        if (imagereferance != null) {
+            imgUri = Uri.parse(imagereferance);
+        }
+        else {
+            imgUri = Uri.parse(finalfromAnayseImage);
+        }
         Picasso.get().load(imgUri).into(setImage);
 
         mood.setText("Mood Happy");
-
-//        bitmap = (Bitmap) MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
-//        setImage.setImageBitmap(bitmap);
+        //setImage.setImageBitmap(BehaviorAdapter.getBitmapFromURL(imagereferance));
+        /*try {
+            bitmap = (Bitmap) MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        setImage.setImageBitmap(bitmap);*/
 
         showBehaviors();
 
@@ -178,6 +211,24 @@ class BehaviorAdapter extends ArrayAdapter<BehaviorItem> {
         Picasso.get().load(imgUri).into(image);
 
         return convertView;
+    }
+
+    public static Bitmap getBitmapFromURL(String src) {
+        try {
+            Log.e("src",src);
+            URL url = new URL(src);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setDoInput(true);
+            connection.connect();
+            InputStream input = connection.getInputStream();
+            Bitmap myBitmap = BitmapFactory.decodeStream(input);
+            Log.e("Bitmap","returned");
+            return myBitmap;
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.e("Exception",e.getMessage());
+            return null;
+        }
     }
 
 }
