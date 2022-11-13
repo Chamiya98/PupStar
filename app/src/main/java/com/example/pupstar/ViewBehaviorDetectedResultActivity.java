@@ -69,10 +69,16 @@ public class ViewBehaviorDetectedResultActivity extends AppCompatActivity {
         String imagereferance = intent.getStringExtra("id");
         String fromAnayseImage = intent.getStringExtra("randomImage");
         String finalfromAnayseImage = API.BASE_URL +"/static/uploads/behavior/"+ fromAnayseImage + "_breed.png";
+        String moods = intent.getStringExtra("title");
+        String fromAnalysismoods = intent.getStringExtra("moodlabel");
         //main_bmp = BitmapData.getInstance().getBitmap();
+
+
         System.out.println("This is from Intent ID" + imagereferance);
         System.out.println("This is from Intent ID froman" + fromAnayseImage);
         System.out.println("This is from Intent ID final froman" + finalfromAnayseImage);
+        System.out.println("This is from final analysis mood" + fromAnalysismoods);
+
         detailDialog = new BottomSheetDialog(ViewBehaviorDetectedResultActivity.this, R.style.BottomSheetTheme);
         detailDialog.setContentView(R.layout.dialog_box_behabior_details);
 
@@ -87,13 +93,15 @@ public class ViewBehaviorDetectedResultActivity extends AppCompatActivity {
         Uri imgUri;
         if (imagereferance != null) {
             imgUri = Uri.parse(imagereferance);
+            mood.setText("Mood "+moods);
         }
         else {
             imgUri = Uri.parse(finalfromAnayseImage);
+            mood.setText("Mood "+fromAnalysismoods);
         }
         Picasso.get().load(imgUri).into(setImage);
 
-        mood.setText("Mood Happy");
+        //mood.setText("Mood "+moods);
         //setImage.setImageBitmap(BehaviorAdapter.getBitmapFromURL(imagereferance));
         /*try {
             bitmap = (Bitmap) MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);

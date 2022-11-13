@@ -70,11 +70,13 @@ public class PreviousBehaviorsActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
 
                 String selected = String.valueOf(arrayList.get(i).getImage());
+                String selectedimagemood = String.valueOf(arrayList.get(i).getTitle());
                 //String imgval = String.valueOf(arrayList.get(3));
                 Intent intent = new Intent(PreviousBehaviorsActivity.this, ViewBehaviorDetectedResultActivity.class);
                 intent.putExtra("id", selected);
                 //intent.putExtra("imageRef", imgval);
                 intent.putExtra("isCreated", "no");
+                intent.putExtra("title", selectedimagemood);
                 //intent.putExtra("behimgref", imgval);
                 //intent.putExtra("imgref", )
                 startActivity(intent);

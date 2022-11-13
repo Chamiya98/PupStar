@@ -169,6 +169,8 @@ public class DetectBehaviorActivity extends AppCompatActivity {
                 Intent intent = new Intent(DetectBehaviorActivity.this, ViewBehaviorDetectedResultActivity.class);
                 intent.putExtra("BitmapImage", bitmap);
                 intent.putExtra("randomImage", imgpre);
+                intent.putExtra("moodlabel", DetectedBehavior);
+                System.out.println("This is mood from analysis:" +DetectedBehavior);
                 startActivity(intent);
 
                 if (SelectedDogId == "Select An Item"){
